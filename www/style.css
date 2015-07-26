@@ -1,0 +1,158 @@
+/* Common*/
+body, ul, p{
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+
+#wrapper{
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    background-color: #d3d3d3;
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+
+main{
+    width: 80%;
+    position: relative;
+    float: right;
+}
+
+.asideL{
+    position: relative;
+    float: left;
+    color: olivedrab;
+    padding-top: 0;
+    background-color: #50D4FD;
+    width: 20%;
+}
+
+.asideR{
+    position: relative;
+    float: right;
+    color: olivedrab;
+    padding-top: 0;
+background-color: #50D4FD;
+}
+
+
+#categories{
+    background-color: #50D4FD;
+    margin: 0;
+
+}
+
+.category{
+    padding: 10px 50px;
+    background-color: yellow;
+    margin-top: 0;
+}
+
+
+footer{
+    clear: both;
+    color: #d11010;
+}
+
+
+
+#log p {
+    text-align: left;
+    color: darkslategrey;
+    margin-left: 10%;
+
+}
+/*************************************************************************************/
+
+
+
+.activePage{
+    color: red;
+}
+
+#title{
+    font-family: "Segoe Print", "Comic Sans", cursive;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    color: brown;
+    background-color: burlywood;
+}
+
+ul{
+
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.7em;
+    list-style-type: none;
+    padding: 0;
+
+}
+
+
+
+/***************************************************************/
+
+.form {
+    width: 60%;
+    text-align: center;
+    left: 20%;
+    position: relative;
+    padding: 1%;
+    background-color: floralwhite;
+}
+
+textarea {
+    width: 80%;
+    font-family: sans-serif;
+    /*font-weight: bold;*/
+    font-size: 1.2em;
+    font-style: italic;
+    text-align: center;
+    padding: 5px;
+    color: navy;
+}
+
+#text {
+    height: 200px;
+}
+
+label {
+    color: maroon;
+    font-style: italic;
+}
+
+
+h2 {
+    text-align: center;
+    font-style: italic;
+    color: crimson;
+    font-weight: normal;
+}
+
+h3 {
+    color: coral;
+    text-align: left;
+}
+
+h4 {
+text-align: justify;
+    color: darkred;
+}
+
+input {
+    color: maroon;
+    background-color: burlywood;
+}
+
+.important {
+    background: yellow;
+}
+

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Polaroid</title>
+    <link href='http://fonts.googleapis.com/css?family=Andika|Jura&subset=cyrillic-ext,latin' rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neucha|Comfortaa:700&subset=latin,cyrillic' rel='stylesheet'
+          type='text/css'>
+    <style>
+        #wrapper {
+            font-family: Verdana, Helvetica, Arial, sans-serif;
+            background-color: thistle;
+            width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .clearfix:before, .clearfix:after {
+            content: "";
+            display: table;
+
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .photo {
+            position: relative;
+            float: left;
+            padding: 10px;
+            margin: 25px;
+            background-color: #ffffff;
+            text-align: center;
+            font-family: "Neucha";
+            font-weight: bold;
+            box-shadow: 5px 5px 15px rgba(50, 50, 50, 0.6);
+        }
+
+        .photo:nth-child(even) {
+            transform: rotate(-1deg);
+            -webkit-transform: rotate(-1deg);
+        }
+
+        .photo:nth-child(odd) {
+            transform: rotate(2deg);
+            -webkit-transform: rotate(2deg);
+        }
+
+        .photo:nth-child(4n) {
+            transform: rotate(-3deg);
+            -webkit-transform: rotate(-3deg);
+        }
+
+        .photo:nth-child(5n) {
+            transform: rotate(10deg);
+            -webkit-transform: rotate(10deg) translate(-5px, -5px);
+        }
+
+        .photo:nth-child(6n) {
+            transform: rotate(-2.5deg);
+            -webkit-transform: rotate(-2.5deg) translate(-5px, 60px);
+        }
+
+        .photo:hover {
+            transform: scale(1.2, 1.2);
+            box-shadow: 5px 5px 15px rgba(30, 30, 30, 0.8);
+        }
+
+        .description {
+            height: 0px;
+            position: absolute;
+            transition: all 1s;
+            background-color: rgba(150, 150, 150, 0.7);
+            color: transparent;
+            overflow: hidden;
+        }
+
+        .photo:hover .description {
+            transform: translate(0px, -40px);
+            height: 40px;
+            color: #000000;
+        }
+
+        /**********************************************************/
+
+
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <main class="clearfix">
+        <figure class="photo">
+            <img src="/images/a.png">
+            <div class="description">Описание фотографии</div>
+            <figcaption>Никому не рассказывай!</figcaption>
+        </figure>
+        <figure class="photo">
+            <img src="/images/a.png">
+            <div class="description">Описание фотографии</div>
+            <figcaption>Никому не рассказывай!</figcaption>
+        </figure>
+        <figure class="photo">
+            <img src="/images/a.png">
+            <div class="description">Описание фотографии</div>
+            <figcaption>Никому не рассказывай!</figcaption>
+        </figure>
+        <figure class="photo">
+            <img src="/images/a.png">
+            <div class="description">Описание фотографии</div>
+            <figcaption>Никому не рассказывай!</figcaption>
+        </figure>
+        <figure class="photo">
+            <img src="/images/a.png">
+            <div class="description">Описание фотографии</div>
+            <figcaption>Никому не рассказывай!</figcaption>
+        </figure>
+        <figure class="photo">
+            <img src="/images/a.png">
+            <div class="description">Описание фотографии</div>
+            <figcaption>Никому не рассказывай!</figcaption>
+        </figure>
+        <figure class="photo">
+            <img src="/images/a.png">
+            <div class="description">Описание фотографии</div>
+            <figcaption>Никому не рассказывай!</figcaption>
+        </figure>
+        <figure class="photo">
+            <img src="/images/a.png">
+            <div class="description">Описание фотографии</div>
+            <figcaption>Никому не рассказывай!</figcaption>
+        </figure>
+        <figure class="photo">
+            <img src="/images/a.png">
+            <div class="description">Описание фотографии</div>
+            <figcaption>Никому не рассказывай!</figcaption>
+        </figure>
+    </main>
+
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/edit/editing/">edit</a></li>
+                <li><a href="/edit/delete/<?php echo $_SESSION['pageid']; ?>">delete</a></li>
+                <li><a href="/">home</a></li>
+            </ul>
+        </nav>
+
+        <address>our address is: some text</address>
+        <br><br>
+
+        <p>no rights reserved</p>
+        <copyright>
+    </footer>
+</div>
+</body>
+</html>
