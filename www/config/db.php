@@ -4,6 +4,6 @@ return [
     'host' => 'localhost',
     'user' => 'root',
     'password' => '',
-    'dbname' => 'mysqldb',
+    'dbname' => 'php1test',
 ];
 ?>

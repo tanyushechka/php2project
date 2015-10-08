@@ -45,7 +45,6 @@ $ctrl = (!empty($control)) ? $control : 'show';
 $ctrlClassName = 'App\\Controllers\\' . ucfirst($ctrl);
 $act = (!empty($action)) ? $action : 'all';
 $method = 'action' . ucfirst($act);
-var_dump('expression');
 
 try {
 	$controller = new $ctrlClassName();
