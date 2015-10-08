@@ -1,9 +1,6 @@
 {
   "require": {
     "phpmailer/phpmailer": "dev-master",
-    "swiftmailer/swiftmailer": "6.0.*@dev",
-    "twig/twig": "2.0.*@dev",
-    "avvertix/phptimer": "dev-master",
-    "psr/log": "1.0.*@dev"
+    "psr/log": "^1.0"
   }
 }
