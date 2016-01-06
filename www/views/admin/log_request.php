@@ -41,7 +41,7 @@
         </form>
         <br><br> <br><br>
         <form action="/admin/email/" method="post" enctype="multipart/form-data" >
-            <input  type="submit">
+            <input  type="submit" value="send email">
         </form>
         <br><a href="/auth/exit/">exit</a><br>
 
