@@ -23,9 +23,6 @@
             <textarea id="text" name="text">
                 <?php echo $items->text; ?>
             </textarea><br><br>
-            <script>
-                CKEDITOR.replace('text');
-            </script>
             <input type="submit" value="Сохранить"/>
             <br><br>
             <br><br>
