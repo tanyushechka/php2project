@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10.10
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Дек 27 2015 г., 01:46
--- Версия сервера: 5.5.45
--- Версия PHP: 5.6.12
+-- Хост: localhost
+-- Время создания: Янв 06 2016 г., 14:42
+-- Версия сервера: 5.5.36-34.0-632.precise
+-- Версия PHP: 5.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `php1test`
+-- База данных: `tagedo_php2proj`
 --
 
 -- --------------------------------------------------------
@@ -27,13 +27,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `articles` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`id` bigint(20) unsigned NOT NULL,
   `title` varchar(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `author` varchar(255) NOT NULL,
-  `text` text NOT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=312 ;
+  `text` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=312 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `articles`
@@ -58,14 +57,12 @@ INSERT INTO `articles` (`id`, `title`, `date`, `author`, `text`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `comments` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`id` bigint(20) unsigned NOT NULL,
   `id_img` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `date` varchar(255) NOT NULL,
-  `text` text NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+  `text` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `comments`
@@ -142,7 +139,7 @@ INSERT INTO `comments` (`id`, `id_img`, `id_user`, `date`, `text`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `images` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`id` bigint(20) unsigned NOT NULL,
   `name` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   `path` varchar(255) NOT NULL,
@@ -150,10 +147,8 @@ CREATE TABLE IF NOT EXISTS `images` (
   `width` int(11) NOT NULL,
   `height` int(11) NOT NULL,
   `size` int(11) NOT NULL,
-  `description` text,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+  `description` text
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `images`
@@ -192,7 +187,7 @@ INSERT INTO `images` (`id`, `name`, `date`, `path`, `id_user`, `width`, `height`
 --
 
 CREATE TABLE IF NOT EXISTS `log` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`id` bigint(20) unsigned NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `message` varchar(30) NOT NULL,
   `file` varchar(100) NOT NULL,
@@ -200,10 +195,8 @@ CREATE TABLE IF NOT EXISTS `log` (
   `table` varchar(30) NOT NULL,
   `arguments` varchar(100) NOT NULL,
   `role` varchar(30) DEFAULT NULL,
-  `username` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+  `username` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `log`
@@ -237,12 +230,10 @@ INSERT INTO `log` (`id`, `date`, `message`, `file`, `function`, `table`, `argume
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`id` bigint(20) unsigned NOT NULL,
   `name` varchar(30) NOT NULL,
-  `href` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `href` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -251,12 +242,10 @@ CREATE TABLE IF NOT EXISTS `menu` (
 --
 
 CREATE TABLE IF NOT EXISTS `roles` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`id` bigint(20) unsigned NOT NULL,
   `name` varchar(30) NOT NULL,
-  `id_menu` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `id_menu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -265,16 +254,13 @@ CREATE TABLE IF NOT EXISTS `roles` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`id` bigint(20) unsigned NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
   `role` varchar(30) NOT NULL DEFAULT 'operator',
-  `email` varchar(255) DEFAULT 'tagedo@yandex.ru',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+  `email` varchar(255) DEFAULT 'tagedo@yandex.ru'
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
@@ -290,6 +276,91 @@ INSERT INTO `users` (`id`, `username`, `password`, `status`, `role`, `email`) VA
 (11, 'vika', 'fgh', 1, 'operator', 'tagedo@yandex.ru'),
 (12, 'alina', 'zxc', 1, 'operator', 'tagedo@yandex.ru');
 
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `articles`
+--
+ALTER TABLE `articles`
+ ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Индексы таблицы `images`
+--
+ALTER TABLE `images`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Индексы таблицы `log`
+--
+ALTER TABLE `log`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Индексы таблицы `menu`
+--
+ALTER TABLE `menu`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Индексы таблицы `roles`
+--
+ALTER TABLE `roles`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`), ADD UNIQUE KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `articles`
+--
+ALTER TABLE `articles`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=312;
+--
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
+--
+-- AUTO_INCREMENT для таблицы `images`
+--
+ALTER TABLE `images`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT для таблицы `log`
+--
+ALTER TABLE `log`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT для таблицы `menu`
+--
+ALTER TABLE `menu`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблицы `roles`
+--
+ALTER TABLE `roles`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
