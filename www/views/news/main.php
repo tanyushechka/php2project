@@ -1,11 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: tagedo
- * Date: 05.05.2015
- * Time: 22:33
- */
-?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
