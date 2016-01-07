@@ -17,7 +17,6 @@ class Auth
 
 	public function actionAuthentication() {
 		if (!empty($_POST['username']) && !empty($_POST['password'])) {
-            echo $_POST['username'].'  '.$_POST['password'];
 			try {
 				$condition = [];
 				$condition['username'] = $_POST['username'];
