@@ -10,7 +10,7 @@ class Show extends AbstractController
 
 
 {
-    protected $path =  '/news111/';
+    protected $path =  '/news/';
 
     public function actionAll()
     {
