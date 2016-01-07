@@ -1,7 +1,6 @@
 <?php
 namespace App\Classes;
 
-require_once __DIR__ . '/../config/db.php';
 class Db
 {
     protected $dbh;
@@ -9,9 +8,9 @@ class Db
 
     public function __construct()
     {
-        $config = include __DIR__ . '/../config/db.php';
-        $dsn = 'mysql:dbname=' . $config['dbname'] . ';host=' . $config['host'];
-        $this->dbh = new \PDO($dsn, $config['user'], $config['password']);
+        $config = json_decode(file_get_contents(PATH_ROOT . '/config/config.json'));
+        $dsn = 'mysql:dbname=' . $config->dbname . ';host=' .$config->host;
+        $this->dbh = new \PDO($dsn, $config->user, $config->password);
     }
 
 
@@ -20,6 +19,7 @@ class Db
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
         $res = ($sth->fetchAll(\PDO::FETCH_CLASS, $class));
+//        var_dump($sth->errorInfo());
         return $res;
     }
 

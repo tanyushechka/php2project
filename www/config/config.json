@@ -1,9 +1,7 @@
 {
-  "db": {
     "host": "localhost",
-    "user": "root",
-    "password": "",
-    "dbname": "php1test"
-  }
+    "user": "tagedo_php2proj",
+    "password": "php2proj",
+    "dbname": "tagedo_php2proj"
 }
 

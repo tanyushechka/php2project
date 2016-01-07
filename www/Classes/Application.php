@@ -135,7 +135,7 @@ class Application {
 	}
 
 	public static function getCurrentByKey($key) {
-		return (isset($_SESSION[$key])) ? $_SESSION[$key] : false;
+		return $_SESSION[$key];
 	}
 
 	public static function setCurrentByKey($array) {

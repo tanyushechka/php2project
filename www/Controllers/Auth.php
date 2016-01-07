@@ -9,7 +9,8 @@ session_start();
 
 class Auth
  extends AbstractController {
-	protected $path = '/authentication/';
+	protected $path =  '/authentication/';
+
 	public function actionLogin() {
 		$this->view->display($this->path . 'login.php');
 	}

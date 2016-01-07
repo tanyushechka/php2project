@@ -7,9 +7,7 @@ use App\Classes\E405Exception;
 require __DIR__ . '/autoload.php';
 
 session_start();
-
-$json = file_get_contents(__DIR__ . '/config/config.json');
-$config = json_decode($json);
+define('PATH_ROOT',  __DIR__);
 
 /****************** parse url  ***************************************/
 
@@ -21,6 +19,7 @@ $action = array_shift($urlParts);
 /*********  check authentication and set/unset $_SESSION['id']  ***********/
 
 if (!Application::getCurrentByKey('username') && ($action != 'authentication')) {
+
 	$control = 'auth';
 	$action = 'login';
 } else {
@@ -41,11 +40,10 @@ if (!Application::getCurrentByKey('username') && ($action != 'authentication')) 
 
 /**************  call Controller's Method   ******************************/
 
-$ctrl = (!empty($control)) ? $control : 'show';
+$ctrl = $control ?: 'show';
 $ctrlClassName = 'App\\Controllers\\' . ucfirst($ctrl);
-$act = (!empty($action)) ? $action : 'all';
+$act = $action ?: 'all';
 $method = 'action' . ucfirst($act);
-
 try {
 	$controller = new $ctrlClassName();
 	$controller->$method();

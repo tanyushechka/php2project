@@ -12,6 +12,10 @@ abstract class Model
     /**
      * @var
      */
+
+
+
+
     protected $id;
 
     /**
@@ -50,6 +54,7 @@ abstract class Model
       public static function findByCondition($condWhere, $condOrder = 'id', $condTurn = 'DESC')
     {
         $class = static::class;
+        echo static::getTable();
         $db = new Db();
         if (count($condWhere) == 0) {
             $sql = 'SELECT * FROM `' . static::getTable() . '` ORDER BY `' . $condOrder . '` ' . $condTurn;

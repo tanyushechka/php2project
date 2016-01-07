@@ -5,7 +5,8 @@ class View
     implements \Countable
 {
     public $data = [];
-    protected $path = '/../views';
+
+    protected $path = '/views';
 
     /************************************************/
     public function __set($k, $v)
@@ -28,14 +29,14 @@ class View
     {
         extract($this->data);
         ob_start();
-        $content = (isset($_SESSION['role'])) ? $_SESSION['role'] . '&nbsp;' : 'undefined ';
-        $content .= (isset($_SESSION['username'])) ? $_SESSION['username'] . '<br>' : 'user' . '<br>';
-        $content .= (isset($_SESSION['notice'])) ? $_SESSION['notice'] . '<br>' : '' . '<br>';
+        $content = ($_SESSION['role']  ?: 'undefined'). '&nbsp;';
+        $content .= ($_SESSION['username'] ?: 'user') . '<br>';
+        $content .= ($_SESSION['notice'] ?: '') . '<br>';
         unset($_SESSION['notice']);
-        include __DIR__ . $this->path . $template;
+        echo PATH_ROOT . $this->path . $template;
+        include PATH_ROOT . $this->path . $template;
         $content .= ob_get_contents();
         $content = substr_replace($content, '(c) tagedo 2015', stripos($content, '<copyright>'));
-        $content .= '<br>' . $_SESSION['role'];
         ob_end_clean();
         echo $content;
     }
