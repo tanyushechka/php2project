@@ -7,9 +7,14 @@ use App\Models\Stuff;
 session_start();
 
 class Show extends AbstractController
+
+
 {
+    protected $path =  '/news/';
+
     public function actionAll()
     {
+        $condWhere = [];
         if ('operator' == Application::getCurrentByKey('role')) {
             $condWhere['author'] = Application::getCurrentByKey('username');
         }

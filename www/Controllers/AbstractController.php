@@ -5,7 +5,7 @@ use App\Classes\View, App\Classes\E403Exception;
 
 abstract class  AbstractController
 {
-    protected $path = '/news/';
+    protected $path;
     protected $view;
     public function __construct()
     {

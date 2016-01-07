@@ -44,6 +44,7 @@ $ctrl = $control ?: 'show';
 $ctrlClassName = 'App\\Controllers\\' . ucfirst($ctrl);
 $act = $action ?: 'all';
 $method = 'action' . ucfirst($act);
+
 try {
 	$controller = new $ctrlClassName();
 	$controller->$method();

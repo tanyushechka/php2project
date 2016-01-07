@@ -24,6 +24,7 @@
         <br><br>
         <ul>
             <?php
+            echo __DIR__;
             foreach ($items as $item) : ?>
                 <li>
                     <a href="/show/specific/<?php echo $item->getStuffId(); ?>"
